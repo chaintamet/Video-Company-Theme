@@ -1,0 +1,84 @@
+.banner {
+    &-carousel {
+        margin-bottom: 0!important;
+        &__item {
+            position: relative;
+            &__media {
+                width: 100%;
+                height: 100%;
+                max-height: 620px;
+                object-fit: cover;
+                @include mq(desktop) {
+                    min-height: 500px;
+                }
+                @include mq(tablet) {
+                    min-height: 560px;
+                }
+            }
+            &__content {
+                position: absolute;
+                right: 80px;
+                bottom: 50px;
+                max-width: 540px;
+                text-align: right;
+                @include mq(desktop) {
+                    right: 50px;
+                    bottom: 34px;
+                    max-width: 356px;
+                }
+                @include mq(tablet) {
+                    right: 31px;
+                    bottom: 76px;
+                    max-width: 250px;
+                }
+            }
+            &__title {
+                margin-bottom: 23px;
+                color: $white;
+                text-shadow: 0 2px 2px rgb(0, 0, 0);
+                @include mq(desktop) {
+                    margin-bottom: 8px;
+                }
+            }
+            &__description {
+                color: $white;
+                text-shadow: 0 2px 2px rgb(0, 0, 0);
+            }
+        }
+        .slick-dots {
+            text-align: left;
+            left: 80px;
+            bottom: 50px;
+            @include mq(desktop) {
+                left: 50px;
+                bottom: 40px;
+            }
+            @include mq(tablet) {
+                left: 30px;
+                bottom: 24px;
+            }
+            li {
+                width: 9px;
+                height: 9px;
+                margin: 0 15px 0 0;
+                background-color: $white;
+                border-radius: 50%;
+                button {
+                    display: none;
+                }
+            }
+            .slick-active {
+                background-color: $primary-gray-69;
+            }
+        }
+        .slick-track
+        {
+            display: flex !important;
+        }
+
+        .slick-slide
+        {
+            height: inherit !important;
+        }
+    }
+}

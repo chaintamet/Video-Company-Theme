@@ -1,0 +1,30 @@
+.testimonial {
+    padding: 100px 0;
+    @include mq(desktop-small) {
+        padding: 45px 0;
+    }
+    @include mq(tablet-small) {
+        padding: 60px 0;
+    }
+    .container {
+        display: flex;
+        justify-content: space-between;
+        @include mq(desktop-small) {
+            flex-direction: column;
+        }
+    }
+    &-author {
+        order: 1;
+        @include mq(desktop-small) {
+            order: 3;
+        }
+    }
+    &-testimonial {
+        width: 70%;
+        order: 2;
+        @include mq(desktop-small) {
+            margin-bottom: 15px;
+            width: 100%;
+        }
+    }
+}

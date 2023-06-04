@@ -1,0 +1,92 @@
+.dashboard {
+    background-color: $primary-gray-69;
+    padding: 50px 0;
+    @include mq(desktop-small) {
+        padding: 25px 0;
+    }
+    .back-to-articles {
+        margin-bottom: 30px;
+        @include mq(desktop-small) {
+            margin-bottom: 50px;
+        }
+        @include mq(tablet-small) {
+            margin-bottom: 30px;
+        }
+    }
+    &-main {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    &-image {
+        flex-shrink: 0;
+        width: min(calc(50% - 15px), 600px);
+        @include mq(desktop-small) {
+            display: none;
+            margin-right: 0;
+        }
+        img {
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+    &-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: max(calc(50% - 15px), calc(100% - 630px));
+        @include mq(desktop-small) {
+            width: 100%;
+        }
+    }
+    &-type {
+        margin-bottom: 20px;
+        color: $white;
+        @include mq(desktop-small) {
+            margin-bottom: 15px;
+        }
+        @include mq(tablet-small) {
+            margin-bottom: 10px;
+        }
+    }
+    &-title {
+        color: $white;
+    }
+    &-small_img {
+        display: none;
+        margin: 25px 0;
+        max-height: 620px;
+        @include mq(desktop-small) {
+            display: block;
+        }
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+    &-description {
+        margin-top: auto;
+        margin-bottom: 30px;
+        @include mq(desktop-small) {
+            width: 80%;
+            margin-bottom: 80px;
+        }
+        @include mq(tablet-small) {
+            width: 100%;
+        }
+        h1, h2, h3, h4, h5, h6, p {
+            color: $white;
+        }
+    }
+    &-info {
+        display: flex;
+        justify-content: space-between;
+        &__author {
+            color: $white;
+        }
+        &__date {
+            color: $white;
+        }
+    }
+}

@@ -1,0 +1,30 @@
+.talent {
+    padding: 50px 0 120px;
+    &-title {
+        margin-bottom: 110px;
+        @include mq(desktop-small) {
+            margin-bottom: 85px;
+        }
+        @include mq(tablet-small) {
+            margin-bottom: 35px;
+        }
+    }
+    &-category {
+        margin-bottom: 20px;
+        width: 100%;
+        border-bottom: 1px solid $black;
+    }
+    &-items {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 35px;
+        @include mq(desktop-small) {
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+        @include mq(tablet-small) {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+    }
+}

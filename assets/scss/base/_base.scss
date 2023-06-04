@@ -1,0 +1,71 @@
+// -----------------------------------------------------------------------------
+// This file contains very basic styles.
+// -----------------------------------------------------------------------------
+
+/**
+ * Set up a decent box model on the root element
+ */
+html {
+  box-sizing: border-box;
+  -webkit-overflow-scrolling: touch;
+  font-size: 62.5%;
+}
+
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+  background-color: $white;
+  @include custom-scrollbar(5px, $black);
+}
+
+main {
+  margin-top: 130px;
+  @include mq(desktop) {
+    margin-top: 60px;
+  }
+  @include mq(tablet-small) {
+    margin-top: 40px;
+  }
+}
+/**
+ * Make all elements from the DOM inherit from the parent box-sizing
+ * Since `*` has a specificity of 0, it does not override the `html` value
+ * making all elements inheriting from the root box-sizing value
+ * See: https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
+ */
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  display: block;
+  height: auto;
+  /* Make sure images are scaled correctly. */
+  max-width: 100%;
+  /* Adhere to container width. */
+}
+
+/**
+ * Basic styles for links
+ */
+a {
+  text-decoration: none;
+  transition: all .3s ease-in-out;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
+  color: $black;
+}

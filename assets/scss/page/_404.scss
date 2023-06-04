@@ -1,0 +1,47 @@
+.template-404 {
+    margin-top: -100px;
+    &__logo {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+        margin-bottom: 135px;
+        @include mq(desktop-small) {
+            margin-bottom: 170px;
+        }
+        @include mq(tablet-small) {
+            margin-bottom: 100px;
+        }
+        img {
+            width: 150px;
+        }
+    }
+    &__title {
+        margin-bottom: 25px;
+        font-family: $f-heading;
+        @include mq(desktop-small) {
+            margin-bottom: 20px;
+        }
+        @include mq(tablet-small) {
+            margin-bottom: 15px;
+        }
+    }
+    &__content {
+        display: flex;
+        align-items: center;
+        margin-bottom: 80px;
+        @include mq(desktop-small) {
+            flex-direction: column;
+        }
+    }
+    &__description {
+        margin-right: 50px;
+        @include mq(desktop-small) {
+            margin-right: 0;
+            margin-bottom: 20px;
+        }
+    }
+    &__image {
+        display: flex;
+        justify-content: center;
+    }
+}

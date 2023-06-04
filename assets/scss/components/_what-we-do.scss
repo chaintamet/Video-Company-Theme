@@ -1,0 +1,86 @@
+.what-we-do {
+    padding: 50px 0;
+    &__title {
+        margin-bottom: 50px;
+        @include mq(tablet-small) {
+            margin-bottom: 30px;
+        }
+    }
+    &__cards {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    &__card {
+        width: 31%;
+        @include mq(tablet-small) {
+            width: 100%;
+        }
+        &__title {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            margin-bottom: 20px;
+            height: 230px;
+            transition: 0.3s;
+            cursor: pointer;
+            @include mq(desktop-small) {
+                height: 150px;
+            }
+            @include mq(tablet-small) {
+                height: 165px;
+            }
+        }
+        &__sub_title {
+            margin-bottom: 20px;
+        }
+        &__cta {
+            margin-bottom: 20px;
+        }
+        &.style-green {
+            .what-we-do__card__title {
+                background-color: $green-BC;
+            }
+            &:hover {
+                .what-we-do__card__title {
+                    color: $green-BC;
+                    background-color: $green-47;
+                }
+            }
+        }
+        &.style-red {
+            .what-we-do__card__title {
+                background-color: $red-C1;
+            }
+            &:hover {
+                .what-we-do__card__title {
+                    color: $red-C1;
+                    background-color: $red-2E;
+                }
+            }
+        }
+        &.style-violet {
+            .what-we-do__card__title {
+                background-color: $violet-F2;
+            }
+            &:hover {
+                .what-we-do__card__title {
+                    color: $violet-F2;
+                    background-color: $violet-69;
+                }
+            }
+        }
+        &.style-blue {
+            .what-we-do__card__title {
+                background-color: $blue-FA;
+            }
+            &:hover {
+                .what-we-do__card__title {
+                    color: $blue-FA;
+                    background-color: $blue-70;
+                }
+            }
+        }
+    }
+}

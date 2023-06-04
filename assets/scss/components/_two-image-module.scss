@@ -1,0 +1,33 @@
+.two-image-module {
+    margin: 75px 0;
+    @include mq(desktop-small) {
+        margin: 60px 0;
+    }
+    @include mq(tablet-small) {
+        margin: 50px 0;
+    }
+    .container {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        @include mq(tablet-small) {
+            flex-direction: column;
+        }
+    }
+    img {
+        width: 100%;
+    }
+    &__image {
+        width: calc(50% - 25px);
+        @include mq(desktop-small) {
+            width: calc(50% - 12px);
+        }
+        @include mq(tablet-small) {
+            margin-bottom: 25px;
+            width: 100%;
+        }
+        &__img {
+            margin-bottom: 15px;
+        }
+    }
+}

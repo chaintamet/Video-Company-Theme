@@ -1,0 +1,213 @@
+.spotlight-articles {
+    position: relative;
+    background-color: $white;
+    &__heading {
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: 15px;
+        padding-top: 25px;
+        border-bottom: 1px solid $black;
+        @include auto-container;
+        @include mq(desktop-small) {
+            padding-right: 35px;
+            margin-bottom: 341px;
+        }
+        @include mq(tablet-small) {
+            padding-right: 15px;
+            margin-bottom: 563px;
+        }
+    }
+    &__title {
+        display: flex;
+        align-items: center;
+    }
+    &__items {
+        width: 100%;
+        height: 820px;
+        overflow-y: scroll;
+        border-collapse: collapse;
+        border-bottom: 1px solid $black;
+        @include custom-scrollbar(5px, $black);
+        @include mq(desktop-small) {
+            height: initial;
+            overflow: initial;
+        }
+    }
+    &__item {
+        &__title {
+            margin-left: auto;
+            padding: 50px;
+            width: 50%;
+            border-left: 1px solid $black;
+            border-bottom: 1px solid $black;
+            transition: 0.3s;
+            cursor: pointer;
+            @include mq(desktop-small) {
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                padding: 25px 50px;
+                width: 100%;
+                border-left: none;
+            }
+            @include mq(tablet-small) {
+                position: relative;
+                padding: 20px 30px;
+            }
+            &__type {
+                margin-bottom: 13px;
+                @include mq(desktop-small) {
+                    width: 30%;
+                }
+                @include mq(tablet-small) {
+                    width: 100%
+                }
+            }
+            &__name {
+                @include max-line(2);
+                overflow: visible;
+                .btn {
+                    display: none;
+                    @include mq(desktop-small) {
+                        display: block;
+                    }
+                    @include mq(tablet-small) {
+                        position: absolute;
+                        top: 5px;
+                        right: 20px;
+                    }
+                }
+                @include mq(desktop-small) {
+                    display: block;
+                    width: 65%;
+                }
+                @include mq(tablet-small) {
+                    margin-top: 30px;
+                    width: 100%;
+                }
+            }
+            &:hover {
+                background-color: $black;
+                .spotlight-articles__item__title__type {
+                    color: $white;
+                }
+                .spotlight-articles__item__title__name {
+                    color: $white;
+                }
+            }
+        }
+        &__content {
+            position: absolute;
+            left: 0;
+            top: 83px;
+            padding: 47px 80px;
+            width: 50%;
+            display: none;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            @include mq(desktop-small) {
+                padding: 20px 50px;
+                width: 100%;
+                height: 340px;
+                border-bottom: 1px solid $black;
+            }
+            @include mq(tablet-small) {
+                padding: 13px 30px 30px;
+                height: 550px;
+            }
+            &__img {
+                width: 100%;
+                @include mq(desktop-small) {
+                    width: 48%;
+                }
+                @include mq(tablet-small) {
+                    width: 100%;
+                }
+            }
+            &__description {
+                width: 100%;
+                @include mq(desktop-small) {
+                    width: 48%;
+                    padding: 35px 0 0;
+                }
+                @include mq(tablet-small) {
+                    width: 100%;
+                    padding: 0;
+                }
+                .btn {
+                    color: $primary-gray-69;
+                    &::before {
+                        border-color: $primary-gray-69;
+                    }
+                }
+            }
+            &__type {
+                margin-bottom: 15px;
+            }
+            img {
+                margin-bottom: 25px;
+                max-height: 400px;
+                width: 100%;
+                object-fit: cover;
+                @include mq(desktop-small) {
+                    height: 250px
+                }
+                @include mq(tablet-small) {
+                    margin-bottom: 0;
+                    max-height: 240px;
+                }
+            }
+            &__name {
+                margin-bottom: 50px;
+                @include max-line(3);
+                @include mq(desktop-small) {
+                    margin-bottom: 25px;
+                }
+            }
+            &__content {
+                margin-bottom: 15px;
+                overflow-y: scroll;
+                @include max-line(4);
+            }
+            &.show {
+                display: flex;
+            }
+        }
+    }
+    &.style-green {
+        background-color: $green-BC;
+        .spotlight-articles {
+            &__item {
+                &__title {
+                    &:hover {
+                        background-color: $green-24;
+                    }
+                }
+            }
+        }
+    }
+    &.style-blue {
+        background-color: $blue-FA;
+        .spotlight-articles {
+            &__item {
+                &__title {
+                    &:hover {
+                        background-color: $blue-45;
+                    }
+                }
+            }
+        }
+    }
+    &.style-red {
+        background-color: $red-C1;
+        .spotlight-articles {
+            &__item {
+                &__title {
+                    &:hover {
+                        background-color: $red-23;
+                    }
+                }
+            }
+        }
+    }
+}

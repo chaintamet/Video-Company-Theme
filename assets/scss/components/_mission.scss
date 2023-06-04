@@ -1,0 +1,39 @@
+.mission {
+    padding: 110px 0;
+    background-color: $white;
+    @include mq(desktop-small) {
+        padding-top: 75px;
+    }
+    @include mq(tablet-small) {
+        padding-top: 50px;
+    }
+    &-media {
+        margin-bottom: 50px;
+        &__data {
+            width: 100%;
+        }
+    }
+    &-content {
+        display: flex;
+        @include mq(tablet-small) {
+            display: block;
+        }
+    }
+    &-heading {
+        flex-shrink: 0;
+        margin-right: 172px;
+        @include mq(tablet-small) {
+            margin-right: 0;
+        }
+    }
+    &-title {
+        flex-shrink: 0;
+        margin-bottom: 15px;
+    }
+    &-description {
+        padding-top: 15px;
+        p {
+            max-width: max(80%, 615px);
+        }
+    }
+}

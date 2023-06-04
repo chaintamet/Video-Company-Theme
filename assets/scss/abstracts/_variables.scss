@@ -1,0 +1,87 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass variables.
+// -----------------------------------------------------------------------------
+
+/// Regular font family
+/// @type List
+$text-font-stack: 'Open Sans', 'Helvetica Neue Light', 'Helvetica Neue',
+  'Helvetica', 'Arial', sans-serif !default;
+
+$f-heading: 'FK Display Alt';
+$f-text-1: 'Noto Sans Mono';
+$f-text-2: 'Noto Sans';
+
+/// Copy text color
+/// @type Color
+$text-color: #000 !default;
+
+/// Main Primary color
+/// @type color
+$black: #2A2A2A !default;
+$primary-gray-40: #404040 !default;
+$primary-gray-69: #696969 !default;
+$primary-gray-B8: #B8B8B8 !default;
+$white: #F1F2F2 !default;
+
+/// Green 
+/// @type Color
+$green-24: #1F3224 !default;
+$green-47: #3D6447 !default;
+$green-BC: #C1D5BC !default;
+
+/// Blue
+/// @type Color
+$blue-45: #263745 !default;
+$blue-70: #3E5A70 !default;
+$blue-FA: #D9E2FA !default;
+
+/// Red
+/// @type Color
+$red-23: #5A2223 !default;
+$red-2E: #782D2E !default;
+$red-C1: #E4C1C1 !default;
+
+/// Violet
+/// @type Color
+$violet-3B: #3F1C3B !default;
+$violet-69: #6F3269 !default;
+$violet-F2: #F2D0F2 !default;
+
+
+/// Pink
+/// @type Color
+$pink: #E9CECE !default;
+
+/// Sky
+/// @type Color
+$sky: #8AA9D5 !default;
+
+/// Container's maximum width
+/// @type Length
+$max-width: 2560px !default;
+
+/// Breakpoints map
+/// @prop {String} keys - Keys are identifiers mapped to a given length
+/// @prop {Map} values - Values are actual breakpoints expressed in pixels
+$breakpoints: (
+  "phone-xsmall": 320px,
+  "phone-s21": 360px,
+  "phone-small": 375px,
+  "phone": 425px,
+  "phone-wide": 480px,
+  "phablet": 560px,
+  "tablet-small": 640px,
+  "tablet": 768px,
+  "tablet-wide": 992px,
+  "desktop-small": 1024px,
+  "desktop": 1200px,
+  "desktop-wide": 1440px,
+  "desktop-ultra": 1599px,
+) !default;
+
+
+/// Relative or absolute URL where all assets are served from
+/// @type String
+/// @example scss - When using a CDN
+///   $base-url: 'http://cdn.example.com/assets/';
+$base-url: '/wp-content/themes/statement/assets/' !default;

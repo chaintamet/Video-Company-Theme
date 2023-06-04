@@ -1,0 +1,70 @@
+.template-intelligence {
+    padding: 30px 0 180px;
+    @include mq(desktop-small) {
+        padding-bottom: 135px;
+    }
+    @include mq(tablet-small) {
+        padding-bottom: 120px;
+    }
+    &s {
+        .cpt-list {
+            position: relative;
+        }
+        &__filters {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 40px;
+            .filter {
+                position: relative;
+                margin-right: 15px;
+                flex-shrink: 0;
+                &:last-child {
+                    margin-right: 0;
+                }
+                &-btn {
+                    padding-left: 7px;
+                    text-align: left;
+                }
+                &-dropdown {
+                    position: absolute;
+                    left: 0;
+                    top: calc(100% - 1px);
+                    min-width: 100%;
+                    transform-origin: 0 0;
+                    transform: scaleY(0);
+                    border: 1px solid $black;
+                    transition: 0.3s;
+                    z-index: 301;
+                    .option {
+                        padding: 7px;
+                        text-align: left;
+                        font-size: 14px;
+                        font-family: $f-text-1;
+                        background-color: $white;
+                        text-transform: uppercase;
+                        white-space: nowrap;
+                        cursor: pointer;
+                        transition: 0.3s;
+                        &:hover {
+                            background-color: $black;
+                            color: $white;
+                        }
+                    }
+                    &.active {
+                        transform: scaleY(1);
+                    }
+                }
+                &.filter-sort {
+                    .filter-btn {
+                        width: 95px;
+                    }
+                }
+                &.filter-category {
+                    .filter-btn {
+                        width: 100px;
+                    }
+                }
+            }
+        }
+    }
+}

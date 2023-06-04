@@ -1,0 +1,103 @@
+
+    :root {
+        --bgcolor: gray;
+    }
+    .style-red {
+        --bgcolor: #E4C1C1;
+        --midcolor: #782D2E;
+        --color: #5A2223;
+    }
+    .style-blue {
+        --bgcolor: #D9E2FA;
+        --midcolor: #3E5A70;
+        --color: #263745;
+    }
+    .style-green {
+        --bgcolor: #C1D5BC;
+        --midcolor: #3D6447;
+        --color: #1F3224;
+    }
+    .style-violet {
+        --bgcolor: #F2D0F2;
+        --midcolor: #6F3269;
+        --color: #3F1C3B;
+    }
+.newsletter {
+    display: flex;
+    align-items: stretch;
+    @include mq(tablet-small) {
+        flex-wrap: wrap;
+        padding-bottom: 60px;
+    }
+    &-title {
+        padding: 25px 40px;
+        color: $white;
+        background-color: var(--midcolor);
+        @include mq(tablet-small) {
+            padding: 15px 20px;
+            width: calc(100% - 50px);
+        }
+    }
+    &-arrow {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-shrink: 0;
+        width: 80px;
+        color: var(--color);
+        background-color: var(--bgcolor);
+        font-size: 45px;
+        @include mq(desktop-small) {
+            width: 50px;
+        }
+    }
+    &-form {
+        width: 100%;
+        div, form, p, input, span {
+            height: 100%;
+        }
+        p {
+            display: flex;
+            @include mq(tablet-small) {
+                display: block;
+            }
+            .wpcf7-form-control-wrap {
+                width: 100%;
+            }
+        }
+        .nf__input-box {
+            width: 100%;
+            padding: 0 20px;
+            background-color: var(--color);
+            color: $white;
+            outline: none;
+            border: none;
+            &::placeholder {
+                text-decoration: underline;
+                color: $white;
+            }
+        }
+        .wpcf7-spinner {
+            display: none;
+        }
+        .nf-btn {
+            color: var(--color);
+            background-color: var(--bgcolor);
+            padding: 0 30px;
+            width: fit-content;
+            border: none;
+            transition: 0.3s;
+            cursor: pointer;
+            @include mq(desktop-small) {
+                font-size: 25px;
+            }
+            @include mq(tablet-small) {
+                width: 100%;
+            }
+            &:hover {
+                background-color: var(--midcolor);
+                color: var(--bgcolor);
+            }
+        }
+    }
+}

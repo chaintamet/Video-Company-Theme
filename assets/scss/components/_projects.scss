@@ -1,0 +1,62 @@
+.projects {
+    padding: 50px 0 150px;
+    @include mq(tablet-small) {
+        padding: 30px 0 0;
+    }
+    &-title {
+        margin-bottom: 70px;
+        @include mq(tablet-small) {
+            margin-bottom: 20px;
+        }
+    }
+    &-carousel {
+        display: flex;
+        .slick-track{
+            display: flex !important;
+        }
+        .slick-slide{
+            height: inherit !important;
+        }
+        .slick-prev, .slick-next {
+            top: -87px;
+            left: calc(100% - 80px);
+            @include mq(desktop-small) {
+                left: calc(100% - 70px);
+                width: 20px;
+                height: 20px;
+            }
+            @include mq(tablet-small) {
+                top: -37px;
+                left: calc(100% - 55px);
+                width: 15px;
+                height: 15px;
+            }
+            &:before {
+                position: absolute;
+                content: '';
+                top: 0;
+                width: 20px;
+                height: 20px;
+                border: 4px solid;
+                border-color: $black $black transparent transparent;
+                transform: scaleY(0.7) rotate(45deg) ;
+            }
+        }
+        .slick-prev {
+            left: calc(100% - 130px);
+            @include mq(desktop-small) {
+                left: calc(100% - 100px);
+                width: 20px;
+                height: 20px;
+            }
+            @include mq(tablet-small) {
+                left: calc(100% - 90px);
+                width: 15px;
+                height: 15px;
+            }
+            &::before {
+                border-color: transparent transparent $black $black;
+            }
+        }
+    }
+}

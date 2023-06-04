@@ -1,0 +1,103 @@
+.cta {
+    :root {
+        --bgcolor: gray;
+    }
+    .style-red {
+        --bgcolor: #E4C1C1;
+        --midcolor: #782D2E;
+        --color: #5A2223;
+    }
+    .style-blue {
+        --bgcolor: #D9E2FA;
+        --midcolor: #3E5A70;
+        --color: #263745;
+    }
+    .style-green {
+        --bgcolor: #C1D5BC;
+        --midcolor: #3D6447;
+        --color: #1F3224;
+    }
+    .style-violet {
+        --bgcolor: #F2D0F2;
+        --midcolor: #6F3269;
+        --color: #3F1C3B;
+    }
+    &-main {
+        display: flex;
+        align-items: stretch;
+        @include mq(tablet-small) {
+            flex-wrap: wrap;
+        }
+    }
+    &-icon {
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        padding: 30px;
+        background-color: var(--bgcolor);
+        @include mq(desktop-small) {
+            display: none;
+        }
+        img {
+            width: 130%;
+        }
+    }
+    &-title {
+        display: flex;
+        align-items: center;
+        padding: 5px 50px 5px 25px;
+        width: 100%;
+        color: $white;
+        background-color: var(--color);
+        @include mq(desktop-small) {
+            padding: 20px;
+        }
+        @include mq(tablet-small) {
+            padding: 15px;
+            width: 100%;
+        }
+    }
+    &-arrow {
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        background-color: var(--midcolor);
+        color: $white;
+        text-align: center;
+        font-size: 30px;
+    }
+    &-cta {
+        display: flex;
+        flex-shrink: 0;
+        width: fit-content;
+        align-items: center;
+        padding: 0 25px;
+        min-width: 280px;
+        width: 35%;
+        background-color: var(--bgcolor);
+        color: var(--color);
+        @include mq(desktop-small) {
+            padding: 0 20px;
+        }
+        @include mq(tablet-small) {
+            padding: 15px 20px;
+            width: calc(100% - 50px);
+        }
+    }
+    &-image {
+        height: 180px;
+        @include mq(desktop-small) {
+            height: 110px;
+        }
+        @include mq(tablet-small) {
+            height: 140px;
+        }
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+}

@@ -1,0 +1,118 @@
+.most-popular {
+    height: 600px;
+    @include mq(desktop-small) {
+        height: 430px;
+    }
+    @include mq(tablet-small) {
+        height: auto;
+    }
+    &.style-green {
+        background-color: $green-BC;
+    }
+    &.style-red {
+        background-color: $red-C1;
+    }
+    &.style-blue {
+        background-color: $blue-FA;
+    }
+    &__carousel {
+        height: 100%;
+        &__item {
+            display: flex !important;
+            flex-wrap: wrap;
+            height: 600px;
+            @include mq(desktop-small) {
+                height: 430px;
+            }
+            @include mq(tablet-small) {
+                height: 850px;
+            }
+            &__img {    
+                flex-shrink: 0;
+                width: min(900px, 45%);
+                height: 100%;
+                @include mq(tablet-small) {
+                    width: 100%;
+                    height: 375px;
+                }
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+            &__content {
+                padding: 75px 65px;
+                width: 55%;
+                @include mq(desktop-small) {
+                    padding: 30px;
+                }
+                @include mq(tablet-small) {
+                    width: 100%;
+                }
+            }
+            &__heading {
+                margin-bottom: 110px;
+                @include mq(tablet-small) {
+                    margin-bottom: 75px;
+                }
+            }
+            &__bottom {
+                display: flex;
+                @include mq(desktop-small) {
+                    display: block;
+                }
+            }
+            &__type {
+                flex-shrink: 0;
+                margin-right: 83px;
+                padding-top: 9px;
+                @include mq(desktop-small) {
+                    margin-bottom: 14px;
+                }
+            }
+            &__title {
+                margin-bottom: 50px;
+                @include max-line(3);
+                @include mq(desktop-small) {
+                    margin-bottom: 25px;
+                }
+            }
+            &__description { 
+                margin-bottom: 10px;
+                @include max-line(5);
+                @include mq(desktop-small) {
+                    @include max-line(2);
+                }
+                @include mq(tablet-small) {
+                    @include max-line(4);
+                }
+            }
+        }
+        .slick-dots {
+            text-align: right;
+            left: -40px;
+            top: 17%;
+            height: fit-content;
+            @include mq(desktop-small) {
+                top: 10%;
+            }
+            @include mq(tablet-small) {
+                top: 52%;
+            }
+            li {
+                width: 9px;
+                height: 9px;
+                margin: 0 15px 0 0;
+                background-color: $primary-gray-B8;
+                border-radius: 50%;
+                button {
+                    display: none;
+                }
+                &.slick-active {
+                    background-color: $black;
+                }
+            }
+        }
+    }
+}

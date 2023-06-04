@@ -1,0 +1,59 @@
+.hamburger {
+  position: relative;
+  z-index: 50;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  cursor: pointer;
+
+  span {
+    position: relative;
+    font-size: 0;
+    width: 20px;
+    height: 2px;
+    display: block;
+    background: #000;
+    transition: all .3s ease-in-out;
+
+    &::before,
+    &::after {
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 2px;
+      display: block;
+      background: #000;
+      content: '';
+      transition: all .3s ease-in-out;
+    }
+
+    &::before {
+      top: -7px;
+    }
+
+    &::after {
+      bottom: -7px;
+    }
+  }
+
+  @include when-inside('.header.is-opened') {
+    span {
+      background-color: transparent;
+
+      &::before {
+        top: 0;
+        transform: rotate(45deg);
+      }
+
+      &::after {
+        bottom: 0;
+        transform: rotate(-45deg);
+      }
+    }
+  }
+}

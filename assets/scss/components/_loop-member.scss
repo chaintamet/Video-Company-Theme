@@ -1,0 +1,96 @@
+.loop-member {
+    margin: 0 10px;
+    height: 540px;
+    overflow: hidden;
+    width: 23%;
+    @include mq(desktop-small) {
+        height: 480px;
+    }
+    @include mq(tablet-small){
+        height: 410px;
+    }
+    &__wrapper {
+        transition: 0.5s;
+        &.active {
+            transform: translateY(-440px);
+            @include mq(desktop-small) {
+                transform: translateY(-400px);
+            }
+            @include mq(tablet-small){
+                transform: translateY(-340px);
+            }
+        }
+    }
+    &__image {
+        margin-bottom: 25px;
+        height: 440px;
+        @include mq(desktop-small) {
+            height: 395px;
+        }
+        @include mq(tablet-small) {
+            height: 335px;
+        }
+        @include when-inside('.active') {
+            margin-bottom: 0;
+        }
+        img {
+            object-fit: cover;
+            height: 100%;
+            width: 100%;
+        }
+    }
+    &__title {
+        margin-bottom: 10px;
+    }
+    &__bottom {
+        display: flex;
+        margin-bottom: 25px;
+    }
+    &__role {
+    }
+    &__plus {
+        position: relative;
+        margin-left: auto;
+        margin-right: 5px;
+        width: 12px;
+        height: 12px;
+        cursor: pointer;
+        &::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 14px;
+            border: 1px solid $black;
+        }
+        &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            height: 14px;
+            border: 1px solid $black;
+            transition: 0.3s;
+        }
+        @include when-inside('.active') {
+            &::after {
+                transform: rotate(90deg);
+            }
+        }
+    }
+    &__content {
+        padding-bottom: 20px;
+        height: 410px;
+        overflow-y: scroll;
+        @include custom-scrollbar(3px, $primary-gray-69);
+        @include mq(desktop-small) {
+            height: 320px;
+        }
+        @include mq(tablet-small){
+            height: 280px;
+        }
+        p {
+            margin-right: 20px;
+        }
+    }
+}

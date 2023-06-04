@@ -1,0 +1,29 @@
+.template-heading{
+    padding: 100px 0;
+    @include mq(desktop-small) {
+        padding: 75px 0;
+    }
+    @include mq(tablet-small) {
+        padding: 60px 0;
+    }
+    &__title {
+        margin-bottom: 7px;
+        color: $black;
+        @include mq(desktop-small) {
+            margin-bottom: 14px;
+        }
+        @include mq(tablet-small) {
+            margin-bottom: 20px;
+        }
+    }
+    &__description {
+        width: 50%;
+        color: $black;
+        @include mq(desktop-small) {
+            width: 60%;
+        }
+        @include mq(tablet-small) {
+            width: 100%;
+        }
+    }
+}

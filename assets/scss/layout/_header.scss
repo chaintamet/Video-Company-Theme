@@ -1,0 +1,278 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the header of the site/application.
+// -----------------------------------------------------------------------------
+
+.header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  background-color: $white;
+  z-index: 30;
+  box-shadow: 0px 0px 10px $primary-gray-B8;
+  @include adminbar-offset();
+  .container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    @include mq(desktop) {
+      padding-top: 18px;
+      padding-bottom: 18px;
+    }
+    @include mq(tablet-small) {
+      padding-top: 9px;
+      padding-bottom: 9px;
+      flex-wrap: wrap;
+    }
+  }
+  .hamburger {
+    display: none;
+    @include mq(desktop) {
+      display: inherit;
+      margin-right: 37px
+    }
+    @include mq(tablet-small) {
+      margin-right: 17px;
+    }
+  }
+  &-logo {
+    position: absolute;
+    top: 29px;
+    left: 50%;
+    transform: translateX(-50%);
+    @include mq(desktop) {
+      position: initial;
+      transform: initial;
+      z-index: 31;
+    }
+    @include mq(tablet-small) {
+      top: 14px;
+    }
+    img {
+      height: 19px;
+      @include mq(desktop-small) {
+        height: 16px;
+      }
+      @include mq(tablet-small) {
+        height: 13px;
+      }
+    }
+    a {
+      &::before {
+        display: none;
+      }
+    }
+  }
+  &-search {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    top: 50%;
+    left: calc(100% - 110px);
+    padding-bottom: 1px;
+    border-bottom: 1px solid transparent;
+    transform: translateY(-44%);
+    background-color: $white;
+    transition: 0.3s;
+    @include mq(desktop-small) {
+      left: calc(100% - 80px);
+    }
+    @include mq(tablet-small) {
+      left: calc(100% - 50px);
+    }
+    @include when-inside('.is-opened') {
+      display: none;
+    }
+    &__icon {
+      flex-shrink: 0;
+      margin-right: 10px;
+      cursor: pointer;
+    }
+    .search-box {
+      opacity: 0;
+      transition: 0.3s;
+      flex-shrink: 0;
+      @include mq(tablet-small) {
+        width: calc(100% - 30px);
+      }
+    }
+    &.active {
+      transform: translate(-100%, -44%);
+      border-color: $primary-gray-40;
+      @include mq(tablet-small) {
+        position: initial;
+        margin-top: 20px;
+        width: 100%;
+        transform: translate(0, 0);
+      }
+      .search-box {
+        opacity: 1;
+      }
+    }
+  }
+  &-nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 29px 0 23px;
+    width: 100%;
+    border-bottom: 1px solid $primary-gray-B8;
+    @include mq(desktop) {
+      position: absolute;
+      left: -100%;
+      top: 60px;
+      padding: 50px;
+      background: $white;
+      height: calc(100vh - 60px);
+      width: 100%;
+      z-index: 29;
+      box-shadow: inset 0px 0px 10px $primary-gray-B8;
+      transition: 0.3s;
+      @include when-inside('.is-opened') {
+        left: 0;
+      }
+    }
+    @include mq(tablet-small) {
+      top: 42px;
+      padding: 40px 30px;
+      height: calc(100vh - 40px);
+    }
+    ul {
+      list-style: none;
+    }
+    &__menu {
+      width: 100%;
+      display: flex;
+      @include mq(desktop) {
+        flex-direction: column;
+      }
+      .menu-item {
+        margin-right: 33px;
+        @include mq(desktop) {
+          margin-bottom: 50px;
+        }
+        &:last-child {
+          margin-right: 50px;
+        }
+        a {
+          color: $primary-gray-40;
+          font-family: $f-heading;
+          font-size: 16px;
+          line-height: 112.5%;
+          text-transform: uppercase;
+          @include mq(desktop) {
+            font-size: 25px;
+          }
+          @include mq(tablet-small) {
+            font-size: 20px;
+          }
+        }
+        &.menu-item-has-children {
+          margin-right: auto;
+          @include mq(desktop) {
+            margin-bottom: 180px;
+            width: 100%;
+          }
+          @include mq(tablet-small) {
+            margin-bottom: 80px;
+          }
+          a {
+            cursor: default;
+            &::before {
+              display: none;
+            }
+          }
+          .sub-menu {
+            position: absolute;
+            display: flex;
+            left: 0;
+            top: calc(100%);
+            width: 100%;
+            background-color: $white;
+            box-shadow: 0 6px 8px rgba($primary-gray-69, 0.1);
+            padding-left: 80px;
+            padding-top: 18px;
+            padding-bottom: 18px;
+            @include mq(desktop) {
+              position: initial;
+              justify-content: space-between;
+              flex-wrap: wrap;
+              margin-top: 70px;
+              padding-top: 20px;
+              padding-left: 0;
+              border-top: 1px solid $primary-gray-69;
+              box-shadow: none;
+            }
+            .menu-item {
+              @include mq(desktop) {
+                margin-right: 0;
+                width: 33%;
+              }
+              @include mq(tablet-small) {
+                width: 50%;
+              }
+            }
+            a {
+              font-family: $f-text-2;
+              color: $primary-gray-69;
+              font-size: 14.5px;
+              font-weight: 400;
+              line-height: 25px;
+              text-transform: initial;
+              cursor: pointer;
+              @include mq(desktop) {
+                font-size: 20px;
+              }
+              @include mq(tablet-small) {
+                font-size: 18px;
+              }
+              &:before {
+                display: block;
+              }
+            }
+          }
+        }
+      }
+    }
+    &__social {
+      display: none;
+      justify-content: space-between;
+      padding: 25px 0 40px;
+      @include mq(desktop) {
+        display: flex;
+      }
+      @include mq(tablet-small) {
+        flex-wrap: wrap;
+        width: 100%;
+      }
+      &__item {
+        @include mq(tablet-small) {
+          width: 50%;
+          margin-bottom: 12px;
+        }
+        &:nth-child(even) {
+          text-align: right;
+        }
+        a {
+          color: $black;
+        }
+      }
+    }
+  }
+  a {
+    position: relative;
+    &:hover {
+      &:before {
+        width: 100%;
+        border-width: 1px;
+      }
+    }
+    &::before {
+      position: absolute;
+      content: '';
+      top: 100%;
+      width: 0%;
+      border-top: 0px solid rgba($primary-gray-69, 0.7);
+      transition: 0.4s;
+    }
+  }
+}

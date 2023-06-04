@@ -1,0 +1,17 @@
+.video-or-image-module {
+    margin: 50px 0;
+    @include mq(tablet-small) {
+        margin: 30px 0;
+    }
+    &__title {
+        margin-bottom: 50px;
+        @include mq(tablet-small) {
+            margin-bottom: 30px;
+        }
+    }
+    &__media__wrapper {
+        img {
+            width: 100%;
+        }
+    }
+}

@@ -1,0 +1,60 @@
+@charset 'UTF-8';
+
+// 1. Configuration and helpers
+@import 'abstracts/variables', 'abstracts/functions', 'abstracts/mixins';
+
+// 2. Vendors
+@import 'vendor/normalize', 'vendor/wp-core';
+
+// 3. Base stuff
+@import 'base/base', 'base/fonts', 'base/typography', 'base/helpers', 'base/animation';
+
+// 4. Layout-related sections
+@import 'layout/header', 'layout/footer';
+
+// 5. Components
+@import 'components/button', 'components/hamburger',
+        'components/banner',
+        'components/spotlight-articles',
+        'components/featured-articles',
+        'components/mission',
+        'components/most-popular',
+        'components/title-content',
+        'components/image-content',
+        'components/testimonial',
+        'components/what-we-do',
+        'components/our-team',
+        'components/talent',
+        'components/intelligence',
+        'components/projects',
+        'components/loop-post',
+        'components/loop-talent',
+        'components/loop-project',
+        'components/loop-member',
+        'components/loop-intelligence',
+        'components/single-article',
+        'components/single-project',
+        'components/cta',
+        'components/newsletter',
+        'components/search-box',
+
+        'components/text-module',
+        'components/two-image-module',
+        'components/image-module',
+        'components/title-only-module',
+        'components/video-or-image-module',
+        'components/long-quote-module',
+        'components/text-image-module',
+        'components/dashboard',
+        'components/loading',
+        
+        'components/template-heading';
+
+@import 'page/legal',
+        'page/404',
+        'page/contact',
+        'page/faq',
+        'page/index',
+        'page/articles',
+        'page/search',
+        'page/intelligence';

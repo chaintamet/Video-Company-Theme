@@ -1,0 +1,42 @@
+.title-content {
+    padding: 50px 0 75px;
+    @include mq(desktop-small) {
+        padding: 35px 0 50px; 
+    }
+    &__each {
+        display: flex;
+        justify-content: space-between;
+        padding: 25px 0;
+        @include mq(desktop-small) {
+            flex-direction: column;
+        }
+    }
+    &__title {
+        margin-right: 150px;
+        width: 20%;
+        @include mq(desktop-small) {
+            margin-bottom: 20px;
+            margin-right: 0;
+            width: 100%;
+        }
+    }
+    &__description {
+        width: 80%;
+        @include mq(desktop-small) {
+            width: 100%;
+            margin-left: 125px;
+        }
+        @include mq(tablet-small) {
+            margin-left: 0;
+        }
+        p {
+            width: 90%;
+            @include mq(desktop-small) {
+                width: 70%;
+            }
+            @include mq(tablet-small) {
+                width: 100%;
+            }
+        }
+    }
+}

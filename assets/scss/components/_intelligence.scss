@@ -1,0 +1,26 @@
+.intelligence {
+    padding: 75px 0;
+    &-title {
+        margin-bottom: 40px;
+        @include mq(desktop-small) {
+            margin-bottom: 25px;
+        }
+    }
+    @include mq(desktop-small) {
+        padding: 60px 0;
+    }
+    @include mq(tablet-small) {
+        padding: 50px 0;
+    }
+    &-items {
+        .intelligence-normal {
+            width: 100% !important;
+            @include mq(desktop-small) {
+                width: 85% !important;
+            }
+            @include mq(tablet-small) {
+                width: 100% !important;
+            }
+        }
+    }
+}

@@ -1,0 +1,30 @@
+// -----------------------------------------------------------------------------
+// This file contains all @font-face declarations, if any.
+// -----------------------------------------------------------------------------
+
+@font-face {
+    font-family: 'FK Display Alt';
+    src: font('FKDisplay-RegularAlt.woff2') format('woff2'),
+        font('FKDisplay-RegularAlt.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Noto Sans Mono';
+    src: font('NotoSansMono-Regular.woff2') format('woff2'),
+        font('NotoSansMono-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Noto Sans';
+    src: font('NotoSans-Regular.woff2') format('woff2'),
+        font('NotoSans-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}

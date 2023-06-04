@@ -1,0 +1,28 @@
+.single-article {
+    width: 70%;
+    @include mq(desktop-small) {
+        width: 100%;
+    }
+}
+
+.related-articles {
+    &__title {
+        margin-bottom: 80px;
+        padding: 15px 0;
+        width: 70%;
+        border-bottom: 1px solid $black;
+        @include mq(desktop-small) {
+            margin-bottom: 60px;
+            width: fit-content;
+        }
+        @include mq(tablet-small) {
+            margin-bottom: 50px;
+            padding: 10px 0;
+        }
+    }
+    &__items {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+}

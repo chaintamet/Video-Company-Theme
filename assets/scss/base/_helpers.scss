@@ -1,0 +1,321 @@
+// -----------------------------------------------------------------------------
+// This file contains CSS helper classes.
+// -----------------------------------------------------------------------------
+
+/**
+ * Clear inner floats
+ */
+.clearfix::after {
+  clear: both;
+  content: '';
+  display: table;
+}
+
+/**
+ * Main content containers
+ * 1. Make the container full-width with a maximum width
+ * 2. Center it in the viewport
+ * 3. Leave some space on the edges, especially valuable on small screens
+ */
+.container {
+  max-width: $max-width; /* 1 */
+  margin-left: auto; /* 2 */
+  margin-right: auto; /* 2 */
+  padding-left: 80px; /* 3 */
+  padding-right: 80px; /* 3 */
+  width: 100%; /* 1 */
+  @include mq(desktop-small) {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+  @include mq(tablet-small) {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
+
+/**
+ * Hide text while making it readable for screen readers
+ * 1. Needed in WebKit-based browsers because of an implementation bug;
+ *    See: https://code.google.com/p/chromium/issues/detail?id=457146
+ */
+.hide-text {
+  overflow: hidden;
+  padding: 0; /* 1 */
+  text-indent: 101%;
+  white-space: nowrap;
+}
+
+/**
+ * Hide element while making it readable for screen readers
+ * Shamelessly borrowed from HTML5Boilerplate:
+ * https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css#L119-L133
+ */
+.visually-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+html.disable-scrolling {
+  position: fixed;
+  width: 100%;
+  overflow-y: scroll;
+}
+
+/**
+* Embed Responsively
+* http://embedresponsively.com/
+*/
+.embed-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 30px;
+  height: 0;
+  overflow: hidden;
+  iframe,
+  object,
+  embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+
+.img-a,
+.img-a-left,
+.img-a-up,
+.img-a-video {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.img-a-video {
+  height: 100%;
+}
+.img-a-video .img-a-img:before {
+  padding-top: 56.25%;
+}
+
+.img-a-bg-video,
+.img-a-decor {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.img-a-bg-video iframe,
+.img-a-bg-video video {
+  -o-object-fit: cover;
+  object-fit: cover;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+.img-a-left .img-a-decor {
+  -webkit-transform: translateX(100%);
+  -ms-transform: translateX(100%);
+  transform: translateX(100%);
+}
+
+.img-a-img {
+  position: relative;
+  overflow: hidden;
+}
+
+.img-a-img:before {
+  content: "";
+  display: block;
+  width: 100%;
+  padding-top: 61.64%;
+}
+
+.img-a-img img,
+.img-a-up .img-a-img img {
+  width: 100%;
+  // -webkit-clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+  // clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+}
+
+.img-a-img img {
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  -o-object-position: center;
+  object-position: center;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.img-a-up .img-a-img img {
+  -webkit-transform: translateY(100%);
+  -ms-transform: translateY(100%);
+  transform: translateY(100%);
+}
+
+.img-not-a .img-a-img img {
+  -webkit-clip-path: inherit;
+  clip-path: inherit;
+}
+
+.a-hidden {
+  opacity: 0;
+}
+
+.a-visible {
+  opacity: 1;
+}
+
+.animated,
+.beforeHeightUp:before {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.animated.infinite {
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+}
+
+.animated.hinge {
+  -webkit-animation-duration: 2s;
+  animation-duration: 2s;
+}
+
+.fadeInUp {
+  -webkit-animation-name: fadeInUp;
+  animation-name: fadeInUp;
+}
+
+.fadeInDown {
+  -webkit-animation-name: fadeInDown;
+  animation-name: fadeInDown;
+}
+
+.fadeInLeft {
+  -webkit-animation-name: fadeInLeft;
+  animation-name: fadeInLeft;
+  -webkit-animation-duration: 0.5s;
+  animation-duration: 0.5s;
+}
+
+.downFull {
+  -webkit-animation-name: downFull;
+  animation-name: downFull;
+}
+
+.upFull {
+  -webkit-animation-name: upFull;
+  animation-name: upFull;
+}
+
+.fadeInRight {
+  -webkit-animation-name: fadeInRight;
+  animation-name: fadeInRight;
+}
+
+.fade {
+  -webkit-animation-name: fade;
+  animation-name: fade;
+}
+
+.beforeHeightUp:before {
+  -webkit-animation-name: heightUp;
+  animation-name: heightUp;
+}
+
+.widthGrowth {
+  -webkit-animation-name: widthGrowth;
+  animation-name: widthGrowth;
+}
+@for $i from 1 through 10 {
+  .a-delay-#{$i} {
+    animation-delay: calc(#{$i} * 0.2s);
+  }
+}
+
+/*
+  Custom Spacings
+*/
+
+@for $i from 1 through 10 {
+  .mt-#{$i} {
+    margin-top: #{$i}rem;
+  }
+  .mb-#{$i} {
+    margin-bottom: #{$i}rem;
+  }
+  .ml-#{$i} {
+    margin-left: #{$i}rem;
+  }
+  .mr-#{$i} {
+    margin-right: #{$i}rem;
+  }
+  .mx-#{$i} {
+    margin-left: #{$i}rem;
+    margin-right: #{$i}rem;
+  }
+  .my-#{$i} {
+    padding-top: #{$i}rem;
+    padding-bottom: #{$i}rem;
+  }
+  .pt-#{$i} {
+    padding-top: #{$i}rem;
+  }
+  .pb-#{$i} {
+    padding-bottom: #{$i}rem;
+  }
+  .pl-#{$i} {
+    padding-left: #{$i}rem;
+  }
+  .pr-#{$i} {
+    padding-right: #{$i}rem;
+  }
+  .px-#{$i} {
+    padding-left: #{$i}rem;
+    padding-right: #{$i}rem;
+  }
+  .py-#{$i} {
+    padding-top: #{$i}rem;
+    padding-bottom: #{$i}rem;
+  }
+}
+.mt-auto {
+  margin-top: auto;
+}
+.mb-auto {
+  margin-bottom: auto;
+}
+.ml-auto {
+  margin-left: auto;
+}
+.mr-auto {
+  margin-right: auto;
+}
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+.my-auto {
+  margin-top: auto;
+  margin-bottom: auto;
+}

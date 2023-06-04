@@ -1,0 +1,50 @@
+.text-image-module {
+    margin: 75px 0;
+    @include mq(desktop-small) {
+        margin: 60px 0;
+    }
+    @include mq(tablet-small) {
+        margin: 50px 0;
+    }
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    &__image {
+        width: calc(50% - 25px);
+        @include mq(desktop-small) {
+            width: calc(50% - 12px);
+        }
+        @include mq(tablet-small) {
+            margin-bottom: 30px;
+            width: 100%;
+        }
+        &__img {
+            margin-bottom: 10px;
+        }
+        &__title {
+        }
+    }
+    &__text {
+        width: calc(50% - 25px);
+        @include mq(desktop-small) {
+            width: calc(50% - 12px);
+        }
+        @include mq(tablet-small) {
+            width: 100%;
+        }
+        p {
+            color: $black;
+        }
+        ul, ol {
+            transform: translateX(20px);
+            li {
+                margin: 5px 0;
+                font-family: $f-text-2;
+                font-size: 16px;
+                font-weight: 400;
+                color: $black;
+            }
+        }
+    }
+}

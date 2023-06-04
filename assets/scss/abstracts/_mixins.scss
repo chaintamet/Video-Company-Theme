@@ -1,0 +1,272 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass mixins.
+// -----------------------------------------------------------------------------
+
+/// Event wrapper
+/// @author Harry Roberts
+/// @param {Bool} $self [false] - Whether or not to include current selector
+/// @link https://twitter.com/csswizardry/status/478938530342006784 Original tweet from Harry Roberts
+@mixin on-event($self: false) {
+  @if $self {
+    &,
+    &:hover,
+    &:active,
+    &:focus {
+      @content;
+    }
+  } @else {
+    &:hover,
+    &:active,
+    &:focus {
+      @content;
+    }
+  }
+}
+
+/// Make a context based selector a little more friendly
+/// @author Hugo Giraudel
+/// @param {String} $context
+@mixin when-inside($context) {
+  #{$context} & {
+    @content;
+  }
+}
+
+/// Global Media Query
+/// @param {String} $width - width
+/// @param {String} $type - min or max media query
+@mixin mq($width, $type: max) {
+  @if map_has_key($breakpoints, $width) {
+    $width: map_get($breakpoints, $width);
+    @if ($type == max) {
+      $width: $width - 1px;
+    }
+    @media only screen and (#{$type}-width: $width) {
+      @content;
+    }
+  }
+}
+
+/// Media query for mobile devices
+@mixin mq_mobile(
+  $deviceMinWidth,
+  $deviceMaxWidth,
+  $devicePixelRatio,
+  $orientation: all
+) {
+  @if $orientation == all {
+    @media only screen and (min-device-width: $deviceMinWidth) and (max-device-width: $deviceMaxWidth) and (-webkit-device-pixel-ratio: $devicePixelRatio) {
+      @content;
+    }
+  } @else {
+    @media only screen and (min-device-width: $deviceMinWidth) and (max-device-width: $deviceMaxWidth)
+    and (-webkit-device-pixel-ratio: $devicePixelRatio) and (orientation:#{$orientation}) {
+      @content;
+    }
+  }
+}
+
+/// Media query for iPhoneX
+@mixin mq_iphoneX($orientation: all) {
+  $deviceMinWidth: 375px;
+  $deviceMaxWidth: 767px;
+  $devicePixelRatio: 3;
+  @include mq_mobile(
+    $deviceMinWidth,
+    $deviceMaxWidth,
+    $devicePixelRatio,
+    $orientation
+  ) {
+    @content;
+  }
+}
+
+/// Media query for Samsung 9
+@mixin mq_s9($orientation: all) {
+  $deviceMinWidth: 360px;
+  $deviceMaxWidth: 767px;
+  $devicePixelRatio: 4;
+  @include mq_mobile(
+    $deviceMinWidth,
+    $deviceMaxWidth,
+    $devicePixelRatio,
+    $orientation
+  ) {
+    @content;
+  }
+}
+
+/// Media query for screen orientation
+@mixin orientation($direction) {
+  $orientation-landscape: "(orientation:landscape)";
+  $orientation-portrait: "(orientation:portrait)";
+
+  @if $direction == landscape {
+    @media #{$orientation-landscape} {
+      @content;
+    }
+  }
+  @if $direction == portrait {
+    @media #{$orientation-portrait} {
+      @content;
+    }
+  }
+}
+
+/// Media query for mobile landscape mode
+@mixin mq_mobile_landscape() {
+  @include when-inside('.mobile') {
+    @include orientation(landscape) {
+      @content;      
+    }
+  }
+}
+
+/// Custom scroll bar
+@mixin custom-scrollbar($width: 5px, $color: $accent) {
+  &::-webkit-scrollbar {
+    width: $width;
+  }
+  
+  &::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0);
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background-color: $color;
+    outline: none;
+  }
+}
+
+/// Typography mixins
+/// @param {String} $mobile-font-size - font size for mobile device
+/// @param {String} $mobile-lineheight - line height for mobile device
+/// @param {String} $desktop-font-size - font size for desktop device
+/// @param {String} $desktop-lineheight - line height for desktop device
+/// @param {String} $font-weight - font weight
+/// @param {String} $font-family - font family
+/// @param {String} $color - font color
+@mixin typography(
+  $mobile-font-size,
+  $mobile-lineheight,
+  $desktop-font-size,
+  $desktop-lineheight,
+  $font-weight: 400,
+  $font-family: $f-heading,
+  $color: $heading_color
+) {
+  color: $color;
+  font-size: fs($mobile-font-size, $desktop-font-size);
+  font-family: $font-family;
+  font-weight: $font-weight;
+  line-height: fs($mobile-lineheight, $desktop-lineheight);
+  @include mq(desktop-wide) {
+    font-size: $desktop-font-size;
+    line-height: $desktop-lineheight;
+  }
+}
+
+/// Pseudo elements
+@mixin pseudo-elements() {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/// SVG background
+@mixin svg-background($svg) {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url("data:image/svg+xml;utf8,#{$svg}");
+}
+
+/// Cover Image
+@mixin cover-image() {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@mixin auto-container {
+  padding-left: 80px; /* 3 */
+  padding-right: 80px; /* 3 */
+  width: 100%; /* 1 */
+  @include mq(desktop) {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+  @include mq(tablet) {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
+
+/// Admin bar offset
+@mixin adminbar-offset() {
+  top: 0;
+  @include when-inside(".admin-bar") {
+    top: 32px;
+    @media screen and (max-width: 782px) {
+      top: 46px;
+    }
+  }
+}
+
+/// Triangle Generator
+/// @param {String} $direction - triangle direction
+/// @param {String} $color - triangle color
+/// @param {String} $width - width
+/// @param {String} $height - height
+@mixin triangle($direction, $color, $width, $height) {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-color: transparent;
+  @if $direction == bottom {
+    border-width: $height $width/2 0 $width/2;
+    border-top-color: $color;
+  }
+  @else if $direction == top {
+    border-width: 0 $width/2 $height $width/2;
+    border-bottom-color: $color;
+  }
+  @else if $direction == left {
+    border-width: $height/2 $width $height/2 0;
+    border-right-color: $color;
+  }
+  @else {
+    border-width: $height/2 0 $height/2 $width;
+    border-left-color: $color;
+  }
+}
+
+/// Hidden Element
+@mixin element-hidden() {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/// Show Element
+@mixin element-show() {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
+  transition: all .3s ease-in-out;
+}
+
+/// Set maxline for paragraph
+/// @param {String} $line - line number
+@mixin max-line($line: 2) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: $line; /* number of lines to show */
+          line-clamp: $line; 
+  -webkit-box-orient: vertical;
+}

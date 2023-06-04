@@ -1,0 +1,41 @@
+.text-module {
+    padding: 75px 0 0;
+    background-color: $white;
+    @include mq(desktop-small) {
+        padding: 60px 0 0;
+    }
+    @include mq(tablet-small) {
+        padding: 30px 0 0;
+    }
+    &__title {
+        margin-bottom: 50px;
+        @include mq(tablet-small) {
+            margin-bottom: 30px;
+        }
+    }
+    &__parts {
+        width: 85%;
+        @include mq(desktop-small) {
+            width: 100%;
+        }
+    }
+    &__part {
+        margin-bottom: 50px;
+        @include mq(tablet-small) {
+            margin-bottom: 30px;
+        }
+        p {
+            color: $black;
+        }
+        ul, ol {
+            transform: translateX(20px);
+            li {
+                margin: 5px 0;
+                font-family: $f-text-2;
+                font-size: 16px;
+                font-weight: 400;
+                color: $black;
+            }
+        }
+    }
+}

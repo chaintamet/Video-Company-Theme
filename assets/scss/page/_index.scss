@@ -1,0 +1,167 @@
+.template-index {
+    .index-heading {
+        position: relative;
+        z-index: 10;
+        padding: 100px 0 25px;
+        border-bottom: 1px solid $black;
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            @include mq(tablet-small) {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+        }
+        @include mq(desktop-small) {
+            padding: 90px 0 20px;
+        }
+        @include mq(tablet-small) {
+            padding: 60px 0 15px;
+        }
+        &__title {
+            @include mq(tablet-small) {
+                margin-bottom: 15px;
+            }
+        }
+        &__filters {
+            display: flex;
+            .filter {
+                position: relative;
+                margin-right: 15px;
+                flex-shrink: 0;
+                &:last-child {
+                    margin-right: 0;
+                }
+                &-btn {
+                    padding-left: 7px;
+                    text-align: left;
+                }
+                &-dropdown {
+                    left: 0;
+                    position: absolute;
+                    top: calc(100% - 1px);
+                    min-width: 100%;
+                    transform-origin: 0 0;
+                    transform: scaleY(0);
+                    border: 1px solid $black;
+                    border-top: none;
+                    transition: 0.3s;
+                    .option {
+                        padding: 7px;
+                        text-align: left;
+                        font-size: 14px;
+                        font-family: $f-text-1;
+                        background-color: $white;
+                        text-transform: uppercase;
+                        white-space: nowrap;
+                        cursor: pointer;
+                        transition: 0.3s;
+                        &:hover {
+                            background-color: $black;
+                            color: $white;
+                        }
+                    }
+                    &.active {
+                        transform: scaleY(1);
+                    }
+                }
+                &.filter-sort {
+                    .filter-btn {
+                        width: 95px;
+                    }
+                }
+            }
+        }
+    }
+    .cpt-block {
+        margin: 120px 0;
+        @include mq(desktop-small) {
+            margin: 70px 0 120px;
+        }
+        @include mq(tablet-small) {
+            margin: 30px 0 120px;
+        }
+    }
+    .cpt {
+        &-heading {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 75px;
+            @include mq(tablet-small) {
+                margin-bottom: 40px;
+            }
+            &__title {
+                padding-bottom: 15px;
+                width: 70%;
+                border-bottom: 1px solid $black;
+                @include mq(desktop-small) {
+                    width: 50%;
+                }
+            }
+            &__view_all {
+                flex-shrink: 0;
+            }
+        }
+        &-list {
+            position: relative;
+            &__item {
+                position: relative;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 20px 0;
+                border-bottom: 1px solid $black;
+                transition: 0.3s;
+                @include mq(tablet-small) {
+                    flex-wrap: wrap;
+                }
+                &__type {
+                    width: 15%;
+                    @include mq(tablet-small) {
+                        width: 50%;
+                        order: 0;
+                    }
+                    &__name {
+                        transition: 0.3s;
+                    }
+                }
+                &__title {
+                    width: 60%;
+                    @include mq(tablet-small) {
+                        margin-top: 20px;
+                        width: 100%;
+                        order: 2;
+                    }
+                }
+                .btn {
+                    @include mq(tablet-small) {
+                        width: 50%;
+                        order: 1;
+                    }
+                }
+                &:before {
+                    position: absolute;
+                    content: '';
+                    left: -25%;
+                    top: -1px;
+                    width: 150%;
+                    height: 102%;
+                    transition: 0.3s;
+                    z-index: -1;
+                }
+                &:hover {
+                    .cpt-list__item__title, .btn, .cpt-list__item__type__name {
+                        color: $white;
+                        &::before {
+                            border-color: $white;
+                        }
+                    }
+                    &:before {
+                        background-color: $green-47;
+                    }
+                }
+            }
+        }
+    }
+}

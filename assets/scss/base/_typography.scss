@@ -1,0 +1,108 @@
+/**
+ * Basic typography style for copy text
+ */
+
+h1,
+.h1 {
+    font-size: 25px;
+    text-transform: uppercase;
+    font-family: $f-heading;
+    letter-spacing: 2%;
+    line-height: 112.5%;
+    font-weight: 400;
+    @include mq(tablet-small, min) {
+        font-size: 35px;
+    }
+    @include mq(desktop-small, min) {
+        font-size: 40px;
+    }
+}
+
+h2,
+.h2 {
+    font-size: 25px;
+    text-transform: uppercase;
+    font-family: $f-heading;
+    letter-spacing: 2%;
+    line-height: 112.5%;
+    font-weight: 400;
+    @include mq(tablet-small, min) {
+        font-size: 25px;
+    }
+    @include mq(desktop-small, min) {
+        font-size: 48px;
+    }
+}
+
+h3,
+.h3 {
+    font-family: $f-text-1;
+    font-size: 17px;
+    letter-spacing: 2%;
+    line-height: 137.5%;
+    font-weight: 400;
+    @include mq(tablet-small, min) {
+        font-size: 18px;
+    }
+    @include mq(desktop-small, min) {
+        font-size: 22px;
+    }
+}
+
+h4,
+.h4 {
+    font-family: $f-text-1;
+    font-size: 16px;
+    line-height: 137.5%;
+    font-weight: 400;
+    @include mq(tablet-small, min) {
+        font-size: 16px;
+    }
+    @include mq(desktop-small, min) {
+        font-size: 18px;
+    }
+}
+
+p,
+.p1 {
+    font-family: $f-text-2;
+    font-size: 14.5px;
+    line-height: 150%;
+    font-weight: 400;
+    @include mq(tablet-small, min) {
+        font-size: 16px;
+    }
+    @include mq(desktop-small, min) {
+        font-size: 16px;
+    }
+}
+
+.p2 {
+    font-family: $f-heading;
+    font-size: 16px;
+    line-height: 112.5%;
+    letter-spacing: 2%;
+    text-transform: uppercase;
+    font-weight: 400;
+    @include mq(tablet-small, min) {
+        font-size: 16px;
+    }
+    @include mq(desktop-small, min) {
+        font-size: 16px;
+    }
+}
+
+.p3 {
+    font-family: $f-heading;
+    font-size: 17px;
+    line-height: 125%;
+    letter-spacing: 2%;
+    text-transform: uppercase;
+    font-weight: 400;
+    @include mq(tablet-small, min) {
+        font-size: 18px;
+    }
+    @include mq(desktop-small, min) {
+        font-size: 22px;
+    }
+}

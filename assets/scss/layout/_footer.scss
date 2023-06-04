@@ -1,0 +1,180 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the footer of the site/application.
+// -----------------------------------------------------------------------------
+
+.footer {
+    &-top {
+        background-color: $black;
+        padding: 50px 0;
+        .container {
+            display: flex;
+            justify-content: space-between;
+            @include mq(desktop) {
+                flex-direction: column;
+            }
+        }
+    }
+    &-left {
+        display: flex;
+        flex-direction: column;
+        @include mq(desktop) {
+            flex-direction: row;
+            align-items: flex-end;
+            justify-content: space-between;
+            margin-bottom: 50px;
+        }
+        @include mq(tablet-small) {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+    }
+    &-logo {
+        margin-bottom: 30px;
+        width: fit-content;
+        @include mq(desktop) {
+            margin-right: 70px;
+            margin-bottom: 0;
+        }
+        @include mq(tablet-small) {
+            margin-bottom: 22px;
+        }
+        a {
+            &::before {
+                display: none;
+            }
+        }
+    }
+    &-description {
+        margin-bottom: 60px;
+        color: $white;
+        @include mq(desktop) {
+            margin-bottom: 0;
+        }
+    }
+    &-social {
+        display: flex;
+        margin-top: auto;
+        list-style: none;
+        @include mq(desktop) {
+            display: none;
+        }
+        &__item {
+            margin-right: 15px;
+        }
+    }
+    
+    &-bottom {
+        padding: 7px 0;
+        background-color: $primary-gray-B8;
+        .container {
+            display: flex;
+            @include mq(tablet-small) {
+                flex-direction: column;
+            }
+        }
+        &__policy-creator {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            @include mq(tablet-small) {
+                margin-top: 5px;
+            }
+        }
+        &__policy {
+            height: fit-content;
+            color: $black !important;
+            &::before {
+                border-color: $black !important;
+            }
+        }
+        &__copyright {
+            color: $black;
+            flex-shrink: 0;
+        }
+    }
+    &-creator {
+        color: $black;
+    }
+    &-right {}
+    &-menu {
+        display: flex;
+        list-style: none;
+        @include mq(desktop) {
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .menu-item {
+            margin-right: 100px;
+            @include mq(desktop) {
+                margin-right: 0;
+                width: 33%;
+            }
+            @include mq(tablet-small) {
+                margin-bottom: 65px;
+                width: 50%;
+            }
+            &:last-child {
+                margin-bottom: 0;
+            }
+            &.menu-item-has-children {
+                a {
+                    display: block;
+                    margin-bottom: 20px;
+                    font-size: 22px;
+                    font-family: $f-heading;
+                    text-transform: uppercase;
+                    cursor: default;
+                    @include mq(desktop) {
+                        font-size: 18px;
+                    }
+                    @include mq(tablet-small) {
+                        font-size: 17px;
+                    }
+                    &::before {
+                        display: none;
+                    }
+                }
+                .sub-menu {
+                    .menu-item {
+                        margin-right: 0;
+                        margin-bottom: 15px;
+                        width: fit-content;
+                    }
+                    a {
+                        font-family: $f-text-2;
+                        font-size: 16px;
+                        text-transform: initial;
+                        cursor: pointer;
+                        @include mq(tablet-small) {
+                            font-size: 14.5px;
+                        }
+                        &:before {
+                            display: block;
+                        }
+                    }
+                }
+            }
+        }
+        ul {
+            list-style: none;
+        }
+    }
+    a {
+        color: $white;
+        position: relative;
+        &:hover {
+            &:before {
+            width: 100%;
+            border-width: 1px;
+            }
+        }
+        &::before {
+            position: absolute;
+            content: '';
+            top: 100%;
+            width: 0%;
+            border-top: 0px solid rgba($white, 0.7);
+            transition: 0.4s;
+        }
+    }
+}

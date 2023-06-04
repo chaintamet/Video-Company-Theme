@@ -1,0 +1,33 @@
+.featured-articles {
+    padding: 60px 0 125px;
+    background-color: $white;
+    @include mq(tablet-small) {
+        padding: 60px 0 0;
+    }
+    &__heading {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        @include mq(desktop-small) {
+            align-items: flex-end;
+        }
+        .btn {
+            transform: translateY(10px);
+        }
+    }
+    &__title {
+        padding: 15px 0;
+        width: 70%;
+        border-bottom: 1px solid $black;
+        @include mq(desktop-small) {
+            width: 70%;
+            padding: 10px 0;
+        }
+    }
+    &__items {
+        padding-top: 75px;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+}

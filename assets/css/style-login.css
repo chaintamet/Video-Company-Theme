@@ -1,0 +1,172 @@
+@font-face {
+  font-family: "Founders Grotesk";
+  src: url("../fonts/Founders/founders-grotesk-web-regular.eot");
+  src: url("../fonts/Founders/founders-grotesk-web-regular.eot?#iefix")
+      format("embedded-opentype"),
+    url("../fonts/Founders/founders-grotesk-web-regular.woff2") format("woff2"),
+    url("../fonts/Founders/founders-grotesk-web-regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+  color: #01161e;
+  font: normal 16px / 1.625 "Founders Grotesk", sans-serif;
+}
+
+.login {
+  display: flex;
+  justify-content: center;
+  background-color: #f1f0d8;
+}
+
+.message {
+  color: #01161e;
+  font-weight: 600;
+}
+
+.login #login {
+  padding: 0;
+  width: 370px;
+}
+
+.login #login h1 a {
+  background-image: url("../img/logo.svg");
+  height: 80px;
+  width: 200px;
+  background-size: 200px auto;
+  background-repeat: no-repeat;
+}
+
+.login #login #loginform,
+#lostpasswordform {
+  background-color: transparent;
+  border-radius: 0;
+  border: none;
+  box-shadow: none;
+}
+
+.login #login #loginform input {
+  font-family: inherit;
+  outline: none;
+  box-shadow: none;
+}
+
+.login #login #loginform input:not(#wp-submit):focus,
+input[type="text"]:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+#loginform input[type="text"],
+#loginform input[type="password"],
+#lostpasswordform input[type="text"],
+#lostpasswordform input[type="password"] {
+  margin-bottom: 35px;
+  padding: 8px 0;
+  width: 100%;
+  color: #000;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.38;
+  border-radius: 0;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #01161e;
+  background-color: transparent;
+}
+
+.login #login input#wp-submit {
+  position: relative;
+  padding: 0;
+  display: block;
+  height: auto;
+  min-height: 0;
+  color: #01161e;
+  font-size: 16px;
+  line-height: 1.4;
+  font-weight: 400;
+  border: none;
+  border-radius: 0;
+  text-shadow: none;
+  background-color: transparent;
+  background-image: linear-gradient(to right, #01161e, #01161e);
+  background-size: 0 2px;
+  background-position: bottom left;
+  background-repeat: no-repeat;
+  transition: 0.3s ease-in;
+  cursor: pointer;
+}
+
+.login #login input#wp-submit:hover,
+.login #login input#wp-submit:focus {
+  background-size: 100% 2px;
+}
+
+.login #login p#nav {
+  margin-top: 0;
+  float: right;
+  margin: 0;
+}
+
+.login #login p#backtoblog {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.login #login p#nav a,
+.login #login p#backtoblog a {
+  color: #01161e;
+  opacity: 0.7;
+}
+
+.login #login p#nav a:hover,
+.login #login p#nav a:focus,
+.login #login p#backtoblog a:hover,
+.login #login p#backtoblog a:focus {
+  text-decoration: underline;
+}
+
+.forgetmenot input {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+.forgetmenot label {
+  position: relative;
+  padding-left: 25px;
+  display: inline-block;
+}
+
+.forgetmenot label::before {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 16px;
+  height: 16px;
+  border: 1px solid #01161e;
+  transform: translateY(-50%);
+  content: "";
+}
+
+.forgetmenot label::after {
+  position: absolute;
+  left: 4px;
+  top: 50%;
+  width: 10px;
+  height: 10px;
+  background-color: #01161e;
+  transform: translateY(-50%);
+  opacity: 0;
+  content: "";
+}
+
+.forgetmenot input:checked + label::after {
+  opacity: 1;
+}

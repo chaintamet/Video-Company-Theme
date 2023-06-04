@@ -1,0 +1,12 @@
+.image-module {
+    margin: 75px 0;
+    @include mq(desktop-small) {
+        margin: 60px 0;
+    }
+    @include mq(tablet-small) {
+        margin: 50px 0;
+    }
+    img {
+        width: 100%;
+    }
+}

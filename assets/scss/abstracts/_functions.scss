@@ -1,0 +1,66 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass functions.
+// -----------------------------------------------------------------------------
+
+/// Native `url(..)` function wrapper
+/// @param {String} $base - base URL for the asset
+/// @param {String} $type - asset type folder (e.g. `fonts/`)
+/// @param {String} $path - asset path
+/// @return {Url}
+@function asset($base, $type, $path) {
+  @return url($base + $type + $path);
+}
+
+/// Returns URL to an image based on its path
+/// @param {String} $path - image path
+/// @param {String} $base [$base-url] - base URL
+/// @return {Url}
+/// @require $base-url
+@function image($path, $base: $base-url) {
+  @return asset($base, 'images/', $path);
+}
+
+/// Returns URL to a font based on its path
+/// @param {String} $path - font path
+/// @param {String} $base [$base-url] - base URL
+/// @return {Url}
+/// @require $base-url
+@function font($path, $base: $base-url) {
+  @return asset($base, 'fonts/', $path);
+}
+
+
+/// Returns vw from pixel
+/// @param {String} $px-vw - pixel
+/// @param {String} $base-vw - default screensize
+@function vw($px-vw, $base-vw: 1440px) {
+  @return ($px-vw * 100vw) / $base-vw;
+}
+
+/// Returns responsive font size
+/// @param {String} $mobile-font-size - font size on mobile device
+/// @param {String} $desktop-font-size - font size on desktop device
+/// @param {String} $mobile-viewport - mobile viewport width
+/// @param {String} $desktop-viewport - desktop viewport width
+
+@function fs(
+  $mobile-font-size,
+  $desktop-font-size,
+  $mobile-viewport: 375px,
+  $desktop-viewport: 1440px
+) {
+  $font-diff: ($desktop-font-size - $mobile-font-size) / 1px;
+  $viewport-diff: ($desktop-viewport - $mobile-viewport) / 1px;
+
+  @return calc(
+    #{$mobile-font-size} + #{$font-diff} *
+      ((100vw - #{$mobile-viewport}) / #{$viewport-diff})
+  );
+}
+
+/// Returns height ratio
+/// @param {String} $width - element width
+/// @param {String} $height - element height
+@function hp($width, $height) {
+  @return ($height / $width) * 100%;
+}

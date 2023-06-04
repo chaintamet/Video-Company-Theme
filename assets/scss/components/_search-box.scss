@@ -1,0 +1,30 @@
+.search {
+    &-box {
+        fieldset {
+            display: flex;
+            padding: 0;
+            margin: 0;
+            border: none;
+        }
+    }
+    &-text {
+        padding: 10px 0 4px;
+        width: 300px;
+        border: none;
+        outline: none;
+        background-color: transparent;
+        @include mq(tablet-small) {
+            width: 100%;
+        }
+        &::placeholder {
+            color: $primary-gray-40;
+        }
+    }
+    &-submit {
+        margin: 0;
+        margin-bottom: -2px;
+        padding: 10px;
+        width: fit-content;
+        text-align: center;
+    }
+}
