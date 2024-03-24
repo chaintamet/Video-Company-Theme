@@ -11,6 +11,7 @@ if ( have_posts() ) {
 	}
 }
 ?>
+
 <?php $search_query = get_search_query(); ?>
 
 <div id="content" class="search-page">

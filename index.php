@@ -2,7 +2,6 @@
 
 <?php breadcrumb_trail( 'echo=1&separator=/' ); ?>
 
-
 <?php if ( have_posts() ) : ?>
 
 	<?php
